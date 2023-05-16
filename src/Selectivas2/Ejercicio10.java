@@ -3,32 +3,30 @@ import java.io.BufferedReader;
 import java.io.InputStreamReader;
 public class Ejercicio10 {
 	public static void main (String[] Args) {
-		int numero=0;
-		int numero2=0;
+
+		int numeroIngresado;
+		int suma = 0;
+		BufferedReader entrada= new BufferedReader(new InputStreamReader (System.in));
+
+		try{
+			System.out.print("Ingresa un número entre 1 y 10 inclusive: ");
+				numeroIngresado = Integer.valueOf(entrada.readLine());
 		
-		
-		BufferedReader entrada= new BufferedReader (new InputStreamReader ( System.in));
-		try {
-			System.out.println("Ingrese un entero del 1 al 10");
-			numero= Integer.valueOf(entrada.readLine());
-			if ((numero>= 1)&&(numero<=9)) {
-				System.out.println("Ingrese otro numero del 1 al 10");
-				numero2= Integer.valueOf(entrada.readLine());
-				while ((numero2>=1)&&(numero2<=9)) {
-					int suma = (numero + numero2);
-					System.out.println("La suma de los numero es" + suma);
-					System.out.println("Ingrese otro numero del 1 al 10");
-					numero2= Integer.valueOf(entrada.readLine());
-					numero=suma;
-				
+				while (numeroIngresado >= 1 && numeroIngresado <= 10) {
+					suma += numeroIngresado;
+					System.out.print("Ingresa otro número entre 1 y 10 inclusive, o un número fuera del rango para finalizar: ");
+					numeroIngresado =Integer.valueOf(entrada.readLine());
 				}
-			}
-			
+		
+				System.out.println("La suma de los números ingresados es: " + suma);
 		}
-		catch (Exception exc) {
-			System.out.println(" hubo un error" +(exc));
-		}
+		catch(Exception exc){
+            System.out.println(exc);
+        } 
 		
 	}
-
 }
+		
+	
+
+
