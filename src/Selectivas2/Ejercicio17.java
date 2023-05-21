@@ -4,21 +4,21 @@ import java.io.InputStreamReader;
 public class Ejercicio17 {
     public static void main(String[]args) {
         int ingresado = 0;
-        boolean verificar = false;
+        boolean verificar = true;
         BufferedReader entrada = new BufferedReader(new InputStreamReader(System.in));
-        System.out.println("ingrese un numero entre mayor a 1 y menor a 10, ingrese 0 para finalizar");
+        System.out.println("ingrese un numero  mayor a 1 y menor a 10, ingrese 0 para finalizar");
         try{
-                while (verificar == false){
+                while (verificar == true){
                     ingresado = Integer.valueOf(entrada.readLine());
                     if ((ingresado>1)&&(ingresado<10)){
                         System.out.println("Cuenta regresiva:");
                         for(int i=ingresado ; i>=0 ; i-- ){
                             System.out.println(i);
                         }
-                        verificar = true;
+                        verificar = false;
                     }else if (ingresado==0){
                         System.out.println("Salio del programa");
-                        verificar=true;
+                        verificar=false;
                     }else{
                         System.out.println("Valor fuera de rango, vuelva a ingresar un numero");
                     }
